@@ -1,0 +1,47 @@
+<!-- this is the basic page -->
+
+<!-- to create background color dark -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> -->
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+<!-- show values in list list  -->
+    <ul class="navbar-nav mr-auto">
+
+<!-- routerLink will call to the folder which it declare -->
+      <li class="nav-item">
+        <a class="nav-link" routerLink="my-selection" routerLinkActive="active">SEARCH</a>
+      </li>
+
+    </ul>
+
+<!--   this line has login, register, and logout-->
+    <ul class="navbar-nav">
+
+<!-- ngIf evaluates the expression and then renders the then or else template in its place when expression is truthy or falsy respectively. -->
+
+      <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/login" routerLinkActive="active">Login</a>
+<!-- this one will be invoked to service.ts class methods to login, and it will route to login page -->
+
+      <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/register" routerLinkActive="active">Register</a>
+<!-- this one will be invoked to service.ts class methods to register, and it will route to register page -->
+
+      <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()">Logout</a>
+<!-- this one will be invoked to service.ts class methods to logout -->      
+    </ul>
+  </div>
+</nav>
+<div>
+
+</div>
+<div class="container">
+  
+  <router-outlet></router-outlet>
+<!-- Acts as a placeholder that Angular dynamically fills based on the current router state -->
+
+</div>

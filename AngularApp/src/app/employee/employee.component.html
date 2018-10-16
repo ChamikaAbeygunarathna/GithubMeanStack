@@ -1,0 +1,117 @@
+<!-- this is the page for add employee keyword -->
+
+<div class="row">
+  <div class="col s12">
+    <div class="card">
+
+      <h1>Add Employee Keyword</h1>
+      <!-- this is the heading for this page -->
+
+      <div class="card-content white-text">
+        <!-- all values which include in this div are white colour -->
+
+        <div class="row">
+          <div class="col s5">
+
+            <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+              <!-- As soon as you import the FormsModule, this directive becomes active by default on all <form> tags.
+  and it will get all values which include in this form using #employeeForm, and after click submit button
+it will be submitted  -->
+
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="employeeService.selectedEmployee._id">
+              <!-- Creates a FormControl instance from a domain model and binds it to a form control element -->
+
+              <div class="row">
+                <div class="input-field col s12">
+
+                  <input type="text" name="position" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.position" placeholder="Eg : JAVA">
+                  <!-- this is the textfield to edit value for get employee keyword -->
+
+                  <label>Position :</label>
+                  <!-- this lable will popup when click to text filed -->
+
+                </div>
+              </div>
+
+
+              <div class="row">
+
+                <div class="input-field col s12">
+                  <!-- this is the div class which include button -->
+
+                  <button class="btn btn-custom right" type="button" (click)="resetForm(employeeForm)">Reset</button>
+                  <!-- this is the button which will be involked reset method -->
+
+                  <button class="btn btn-custom right" type="submit" [disabled]="!employeeForm.valid">Submit</button>
+                  <!-- this is the button which will be involked submit method -->
+
+                </div>
+              </div>
+            </form>
+            <!-- this is the end tag of form -->
+
+          </div>
+          <div class="col s7">
+
+            <table class="responsive-table highlight">
+              <!-- this is the table which will be shown the values from mongo db employee keyword -->
+
+              <thead>
+                <!-- this is the table head open tag -->
+
+                <tr>
+                  <!-- this is the row, which include table headers -->
+
+                  <th>Position</th>
+                  <!-- this is the table header -->
+
+                  <th></th>
+
+                </tr>
+                <!-- this is the end tag of table row -->
+
+              </thead>
+              <!-- this is the table head closed tag -->
+
+              <tr *ngFor="let emp of employeeService.employees">
+                <!-- this row will show all values in table -->
+
+                <td>{{emp.position}}</td>
+                <!-- this will show value from database which is include to position -->
+
+                <td>
+                  <!-- this one include update and delete method involk icons -->
+
+                  <a class="action-btn" (click)="onEdit(emp)">
+                    <!-- when click this one it involke update method -->
+
+                    <i class="material-icons">edit</i>
+                    <!-- this is the icon for update -->
+
+                  </a>
+                  <!-- end tag of update mehtod involk <a> -->
+
+                  <a class="action-btn" (click)="onDelete(emp._id,employeeForm)">
+                    <!-- when click this one it involke delete method -->
+
+                    <i class="material-icons">delete</i>
+                    <!-- this is the icon for delete -->
+
+                  </a>
+                  <!-- end tag of delete mehtod involk <a> -->
+
+                </td>
+                <!-- end tag -->
+
+              </tr>
+              <!-- table row end tag -->
+
+            </table>
+            <!-- end of table -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

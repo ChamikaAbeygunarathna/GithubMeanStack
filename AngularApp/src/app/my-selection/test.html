@@ -1,0 +1,36 @@
+<!-- THIS PAGE IS DEVELOPED FOR SOME TESTING PURPOSES -->
+<div>
+    Enter :
+    <input placeholder="Placeholder" type="text" [(ngModel)]="userName">
+    <button (click)="search()">Accent</button>
+</div>
+<!-- set checking parameter -->
+
+<table style="width:100%" border="1">
+    <!-- start of table -->
+    <tr>
+        <!-- start of table headers -->
+        <th>COMPANY</th>
+        <th>company_logo</th>
+        <th>company_url</th>
+        <th>title</th>
+    </tr>
+
+    <div *ngIf="!responce.valid">Oops! Something went wrong.
+        <!-- if there is no any values this will pop up -->
+        <div *ngFor="let data of responce">
+            <!-- load all data to table body -->
+            <tr>
+                <!-- start of table body -->
+                <td>{{data.company}}</td>
+                <td>{{data.company_logo}}</td>
+                <td>{{data.company_url}}</td>
+                <td>{{data.title}}</td>
+            </tr>
+            <!-- end of table body -->
+        </div>
+        <!-- end of div -->
+    </div>
+    <!-- end of div -->
+</table>
+<!-- end of table -->

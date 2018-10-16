@@ -1,0 +1,48 @@
+<div class="row">
+  <!-- start of div -->
+  <div class="input-field col s12">
+    <!-- start of div -->
+    Enter :
+    <input placeholder="Placeholder" type="text" [(ngModel)]="userName">
+    <!-- input value -->
+
+    <button (click)="search()">Accent</button>
+    <!-- this will involk search() -->
+
+  </div>
+  <!-- end div -->
+</div>
+<!-- end div -->
+
+<table style="width:100%" border="1">
+  <!-- start of table -->
+
+  <tr>
+    <!-- start of table heading -->
+    <th>COMPANY</th>
+    <th>company_logo</th>
+    <th>company_url</th>
+    <th>title</th>
+  </tr>
+  <!-- end of table heading -->
+
+  <div *ngIf="!responce.valid">Oops! Something went wrong.
+    <!-- pirnt error message when there is no value in table -->
+
+    <div *ngFor="let data of responce">
+      <!-- load all data to table open div -->
+
+      <tr>
+        <!-- start of table body container -->
+        <td>{{data.company}}</td>
+        <td>{{data.company_logo}}</td>
+        <td>{{data.company_url}}</td>
+        <td>{{data.title}}</td>
+      </tr>
+      <!-- end of table body contatiner -->
+    </div>
+    <!-- end of div -->
+  </div>
+  <!-- end of div -->
+</table>
+<!-- end of table -->

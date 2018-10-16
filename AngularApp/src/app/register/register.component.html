@@ -1,0 +1,47 @@
+<div class="py-5">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <span class="anchor" id="formLogin"></span>
+      <div class="card rounded-0">
+
+        <div class="card-header">
+          <!-- heading div class open -->
+          <h3 class="mb-0">Register</h3>
+          <!-- header -->
+        </div>
+        <!-- end of heading class -->
+
+        <div class="card-body">
+          <form class="form">
+            <div class="form-group">
+              <!-- lable div class open -->
+              <label for="uname1">Username</label>
+              USER NAME:
+              <input type="text" [(ngModel)]="registerUserData.email" name="email" class="form-control rounded-0" required>
+              <!-- input user name value -->
+            </div>
+            <!-- end of lable div class -->
+
+            <div class="form-group">
+              <!-- lable div class open -->
+              <label>Password</label>
+              PASSWORD :
+              <input type="password" [(ngModel)]="registerUserData.password" name="password" class="form-control rounded-0" required>
+              <!-- input password value -->
+            </div>
+            <!-- end of lable div -->
+
+            <button type="button" (click)="registerUser()" class="btn btn-primary float-right">Register</button>
+            <!-- involk registerUser() -->
+          </form>
+        </div>
+        <!--/card-block-->
+      </div>
+      <!-- /form card login -->
+
+    </div>
+    <!-- end of div -->
+  </div>
+  <!-- end of div -->
+</div>
+<!-- end of div -->
