@@ -1,0 +1,5 @@
+01. AngularApp running code == ng serve --open
+
+02. EXPRESS_TEST == nodemon index.js 
+
+## in EXPRESS_TEST please run index.js
